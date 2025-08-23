@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Star Wars Crawl</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: black;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+    }
+
+    .intro {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      color: #00bfff; /* blue */
+      opacity: 0;
+      animation: fadeIn 4s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .crawl-container {
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      height: 100%;
+      perspective: 400px;
+      overflow: hidden;
+      display: none;
+    }
+
+    .crawl {
+      font-size: 1.5em;
+      color: #ffe81f; /* yellow */
+      text-align: justify;
+      width: 60%;
+      margin: auto;
+      transform-origin: 50% 100%;
+      animation: crawlAnim 60s linear forwards;
+    }
+
+    @keyframes crawlAnim {
+      0% {
+        transform: rotateX(20deg) translateZ(0) translateY(100%);
+      }
+      100% {
+        transform: rotateX(25deg) translateZ(-1500px) translateY(-300%);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="intro" id="introText">
+    A long time ago in a galaxy far,<br>far away...
+  </div>
+
+  <div class="crawl-container" id="crawlContainer">
+    <div class="crawl">
+      <p>Episode Bloom I</p>
+      <p>THE RITUAL OF AFFIRMATION</p>
+      <p>In a coded sanctuary, a gentle force awakens.</p>
+      <p>But shadows linger.</p>
+    </div>
+  </div>
+
+  <script>
+    // Wait for fade-in to finish, then show crawl
+    setTimeout(() => {
+      document.getElementById('introText').style.display = 'none';
+      document.getElementById('crawlContainer').style.display = 'block';
+    }, 5000); // 4s fade + 1s buffer
+  </script>
+
+</body>
+</html>
