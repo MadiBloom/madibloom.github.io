@@ -13,6 +13,23 @@
       color: #fff;
     }
 
+    /* Starfield background */
+    .stars {
+      width: 100%;
+      height: 100%;
+      background: black url('https://raw.githubusercontent.com/bloomstarwars/assets/main/stars.png') repeat;
+      animation: starScroll 60s linear infinite;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    @keyframes starScroll {
+      from { background-position: 0 0; }
+      to { background-position: 0 -1000px; }
+    }
+
     .intro {
       position: absolute;
       width: 100%;
@@ -64,16 +81,19 @@
 </head>
 <body>
 
+  <div class="stars"></div>
+
   <div class="intro" id="introText">
     A long time ago in a galaxy far,<br>far away...
   </div>
 
   <div class="crawl-container" id="crawlContainer">
     <div class="crawl">
-      <p>Episode Bloom I</p>
-      <p>THE RITUAL OF AFFIRMATION</p>
-      <p>In a coded sanctuary, a gentle force awakens.</p>
-      <p>But shadows linger.</p>
+        <p>Episode IX</p>
+        <p>THE ECLIPSE PROTOCOL</p>
+        <p>It is the year 3047. Across the fractured moons of the Ardent Spiral, whispers of an ancient signal have awakened. The Eclipse Protocol—once thought lost in the archives of the Synth Monastery—has resurfaced, pulsing through the void like a heartbeat.</p>
+        <p>Captain Virell, a rogue archivist with a stolen vessel and a haunted past, races against time to decode the signal before the Dominion’s shadow fleets arrive. With only a crew of outcasts and a relic AI named Solace, she must navigate collapsing wormholes, memory storms, and the ruins of forgotten civilizations.</p>
+        <p>The fate of the Spiral hangs in the balance. And somewhere, deep beneath the ice of a dead planet, the Protocol waits to be awakened...</p>
     </div>
   </div>
 
