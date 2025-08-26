@@ -1,0 +1,29 @@
+body {
+  background-color: black;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+}
+
+#pipboy {
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #00ff00;
+}
+
+nav button {
+  background: none;
+  border: 1px solid #00ff00;
+  color: #00ff00;
+  margin: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background-color: #003300;
+}
+
+#content {
+  margin-top: 20px;
+}
