@@ -1,0 +1,18 @@
+{
+  "weapons": [
+    { "name": "10mm Pistol", "damage": 18, "weight": 3.5 },
+    { "name": "Laser Rifle", "damage": 24, "weight": 5.0 }
+  ],
+  "apparel": [
+    { "name": "Vault Suit", "armor": 5, "weight": 1.0 }
+  ],
+  "junk": [
+    { "name": "Aluminum Can", "value": 1 },
+    { "name": "Toy Rocketship", "value": 3 }
+  ],
+  "misc": [
+    { "name": "Bobby Pin", "quantity": 12 }
+  ],
+  "caps": 124,
+  "health": 85
+}
