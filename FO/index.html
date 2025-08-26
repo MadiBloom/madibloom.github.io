@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pip-Boy Interface</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pip-Boy 3000</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,11 +14,17 @@
       <button onclick="loadCategory('apparel')">Apparel</button>
       <button onclick="loadCategory('junk')">Junk</button>
       <button onclick="loadCategory('misc')">Misc</button>
-      <button onclick="loadCategory('caps')">Caps</button>
-      <button onclick="loadCategory('health')">Health</button>
     </nav>
+
     <section id="content"></section>
+
+    <!-- Always-visible status bar -->
+    <div id="status-bar">
+      <div id="health-display">❤️ Health: --</div>
+      <div id="caps-display">🪙 Caps: --</div>
+    </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
