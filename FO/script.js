@@ -1,5 +1,5 @@
 async function loadCategory(category) {
-  const response = await fetch('pip.json');
+  const response = await fetch('data/inventory.json');
   const data = await response.json();
   const content = document.getElementById('content');
   content.innerHTML = '';
@@ -12,7 +12,19 @@ async function loadCategory(category) {
   const items = data[category];
   items.forEach(item => {
     const itemDiv = document.createElement('div');
-    itemDiv.innerHTML = `<strong>${item.name}</strong>: ${JSON.stringify(item)}`;
+    let details = '';
+
+    if (category === 'weapons') {
+      details = `Damage: ${item.damage} | Weight: ${item.weight}`;
+    } else if (category === 'apparel') {
+      details = `Armor: ${item.armor} | Weight: ${item.weight}`;
+    } else if (category === 'junk') {
+      details = `Value: ${item.value}`;
+    } else if (category === 'misc') {
+      details = `Quantity: ${item.quantity}`;
+    }
+
+    itemDiv.innerHTML = `<strong>${item.name}</strong> — ${details}`;
     content.appendChild(itemDiv);
   });
 }
