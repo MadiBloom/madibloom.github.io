@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pip-Boy Interface</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="pipboy">
+    <h1>Pip-Boy 3000</h1>
+    <nav>
+      <button onclick="loadCategory('weapons')">Weapons</button>
+      <button onclick="loadCategory('apparel')">Apparel</button>
+      <button onclick="loadCategory('junk')">Junk</button>
+      <button onclick="loadCategory('misc')">Misc</button>
+      <button onclick="loadCategory('caps')">Caps</button>
+      <button onclick="loadCategory('health')">Health</button>
+    </nav>
+    <section id="content"></section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
