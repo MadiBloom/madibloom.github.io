@@ -1,6 +1,6 @@
 async function loadCategory(category) {
   try {
-    const response = await fetch('inventory.json');
+    const response = await fetch('pip.json');
     const data = await response.json();
 
     const content = document.getElementById('content');
