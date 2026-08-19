@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Music Player</title>
+
+<style>
+  body {
+    background: #f2f2f2;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .dc-player {
+    width: 360px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    text-align: center;
+    border: 3px solid #e6e6e6;
+  }
+
+  .dc-logo {
+    width: 120px;
+    margin: 0 auto 10px;
+    opacity: 0.9;
+  }
+
+  .dc-title {
+    font-size: 20px;
+    color: #ff7a00;
+    margin-bottom: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  audio {
+    width: 100%;
+    margin-top: 10px;
+    filter: drop-shadow(0px 0px 3px #ff7a00);
+  }
+
+  .dc-btn {
+    margin-top: 18px;
+    padding: 10px 20px;
+    background: #ff7a00;
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .dc-btn:hover {
+    background: #ff9a33;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="dc-player">
+  <img class="dc-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/22/Dreamcast_logo.svg">
+  <div class="dc-title">Dreamcast Music Player</div>
+
+  <audio controls>
+    <source src="music.ogg" type="audio/ogg">
+    Your browser does not support OGG audio.
+  </audio>
+
+  <button class="dc-btn">Play Music</button>
+</div>
+
+</body>
+</html>
