@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghost — Synthwave Night</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#03020a;font-family:Arial,Helvetica,sans-serif}
+body{position:relative}.sky{position:absolute;inset:0;overflow:hidden;background:radial-gradient(ellipse at 50% 48%,rgba(74,16,91,.55),rgba(25,7,43,.7) 38%,#03020a 78%)}
+.sky:before{content:"";position:absolute;inset:-30%;background:radial-gradient(ellipse at 50% 65%,rgba(255,0,153,.16),transparent 48%),radial-gradient(ellipse at 30% 35%,rgba(0,217,255,.1),transparent 40%);animation:atmosphere 12s ease-in-out infinite alternate}
+@keyframes atmosphere{from{transform:scale(1) translateX(-2%);opacity:.7}to{transform:scale(1.15) translateX(2%);opacity:1}}
+.stars,.stars:before,.stars:after{position:absolute;inset:0;content:"";background-image:radial-gradient(circle,rgba(255,255,255,.8) 1px,transparent 1.5px),radial-gradient(circle,rgba(255,0,190,.6) 1px,transparent 1.5px),radial-gradient(circle,rgba(0,220,255,.6) 1px,transparent 1.5px);background-size:130px 130px,210px 210px,280px 280px;background-position:20px 40px,80px 20px,150px 90px}
+.stars{opacity:.55;animation:starDrift 40s linear infinite}.stars:before{opacity:.4;transform:translateY(-100%);animation:starFall 25s linear infinite}.stars:after{opacity:.25;transform:translateY(-100%);animation:starFall 55s linear infinite}
+@keyframes starDrift{from{transform:translateX(0)}to{transform:translateX(-130px)}}@keyframes starFall{from{transform:translateY(-100%)}to{transform:translateY(100%)}}
+.moon{position:absolute;width:min(38vw,480px);height:min(38vw,480px);min-width:250px;min-height:250px;left:50%;top:40%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#fffaff,#f7caff 23%,#d76fff 54%,#8c1aa8 78%,#3c0758);box-shadow:0 0 25px #ff4de1,0 0 70px rgba(255,0,204,.55),0 0 150px rgba(123,0,255,.4);animation:moonPulse 5s ease-in-out infinite alternate}
+@keyframes moonPulse{from{filter:brightness(.85);transform:translate(-50%,-50%) scale(.98)}to{filter:brightness(1.15);transform:translate(-50%,-50%) scale(1.02)}}
+.moon:after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 65% 45%,transparent 0 52%,rgba(5,0,12,.15) 70%,rgba(5,0,12,.55))}
+.horizon{position:absolute;left:-10%;right:-10%;bottom:22%;height:16%;background:radial-gradient(ellipse,rgba(255,0,200,.75),rgba(255,0,155,.25) 30%,transparent 70%);filter:blur(12px);animation:horizonPulse 4s ease-in-out infinite alternate}
+@keyframes horizonPulse{from{opacity:.55}to{opacity:1}}
+.city{position:absolute;left:0;right:0;bottom:0;height:43%;display:flex;align-items:flex-end;perspective:700px;background:linear-gradient(to top,#020107,rgba(7,1,18,.9) 65%,transparent)}
+.building{position:relative;flex:1;min-width:35px;margin-right:3px;background:linear-gradient(90deg,#07030d,#170724 50%,#05020b);border-top:1px solid rgba(255,0,190,.35);box-shadow:inset 1px 0 rgba(0,255,255,.05),inset -1px 0 rgba(255,0,190,.08)}
+.building:nth-child(1){height:45%}.building:nth-child(2){height:70%}.building:nth-child(3){height:53%}.building:nth-child(4){height:82%}.building:nth-child(5){height:62%}.building:nth-child(6){height:91%}.building:nth-child(7){height:58%}.building:nth-child(8){height:76%}.building:nth-child(9){height:48%}.building:nth-child(10){height:88%}.building:nth-child(11){height:67%}.building:nth-child(12){height:55%}.building:nth-child(13){height:79%}.building:nth-child(14){height:48%}.building:nth-child(15){height:72%}.building:nth-child(16){height:62%}.building:nth-child(17){height:86%}.building:nth-child(18){height:51%}.building:nth-child(19){height:74%}.building:nth-child(20){height:60%}
+.windows{position:absolute;inset:8px;background-image:repeating-linear-gradient(to right,transparent 0 8px,rgba(255,0,170,.35) 9px 10px,transparent 11px 17px),repeating-linear-gradient(to bottom,transparent 0 13px,rgba(0,230,255,.35) 14px 16px,transparent 17px 27px);animation:windowsFlicker 3s steps(5) infinite}
+@keyframes windowsFlicker{0%,18%,22%,60%,100%{opacity:.8}20%,61%{opacity:.25}62%{opacity:1}}
+.neon-line{position:absolute;left:0;right:0;bottom:29%;height:2px;background:#ff00cc;box-shadow:0 0 8px #ff00cc,0 0 25px #ff00cc,0 0 60px rgba(255,0,204,.7);animation:neonFlicker 2.8s infinite}
+@keyframes neonFlicker{0%,91%,94%,100%{opacity:1}92%{opacity:.2}93%{opacity:.8}}
+.particles{position:absolute;inset:0;pointer-events:none}.particle{position:absolute;width:2px;height:2px;border-radius:50%;background:#ff53e5;box-shadow:0 0 6px #ff00d4,0 0 14px #ff00d4;animation:floatUp linear infinite,particleTwinkle ease-in-out infinite alternate}
+@keyframes floatUp{from{transform:translateY(105vh) translateX(0)}to{transform:translateY(-10vh) translateX(var(--drift))}}@keyframes particleTwinkle{from{opacity:.15}to{opacity:1}}
+.fog{position:absolute;left:-20%;right:-20%;bottom:12%;height:30%;background:radial-gradient(ellipse,rgba(255,0,180,.18),transparent 65%);filter:blur(30px);animation:fogMove 18s ease-in-out infinite alternate}
+@keyframes fogMove{from{transform:translateX(-8%) scaleX(1)}to{transform:translateX(8%) scaleX(1.2)}}
+.scanlines{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.025) 0 1px,transparent 2px 5px);mix-blend-mode:overlay;opacity:.7}
+.vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse,transparent 45%,rgba(0,0,0,.3) 75%,rgba(0,0,0,.9) 120%)}
+.chromatic{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:.13;background:linear-gradient(90deg,rgba(255,0,0,.12),transparent 20% 80%,rgba(0,255,255,.12));animation:chromaticShift 4s steps(2) infinite}
+@keyframes chromaticShift{0%,90%,100%{transform:translateX(0)}92%{transform:translateX(3px)}94%{transform:translateX(-2px)}}
+.glitch{position:absolute;inset:0;pointer-events:none;opacity:0;background:linear-gradient(90deg,transparent 0 10%,rgba(255,0,200,.15) 10.2% 10.4%,transparent 10.6% 55%,rgba(0,255,255,.15) 55.2% 55.4%,transparent 55.6%)}
+.glitch.active{animation:glitchFlash .25s steps(2)}
+@keyframes glitchFlash{0%{opacity:0;transform:translateX(0)}20%{opacity:.8;transform:translateX(-8px)}45%{opacity:.3;transform:translateX(6px)}70%{opacity:.7;transform:translateX(-3px)}100%{opacity:0;transform:translateX(0)}}
+.title{position:absolute;left:50%;top:67%;transform:translate(-50%,-50%);text-align:center;color:rgba(255,255,255,.75);letter-spacing:.45em;text-transform:uppercase;font-size:clamp(9px,1vw,14px);text-shadow:0 0 8px #ff00cc,0 0 20px rgba(255,0,204,.7);opacity:.55;animation:titlePulse 5s ease-in-out infinite}
+@keyframes titlePulse{0%,100%{opacity:.3}50%{opacity:.75}}
+.audio-control{position:absolute;left:50%;bottom:25px;transform:translateX(-50%);z-index:10;padding:10px 18px;border:1px solid rgba(255,0,204,.4);border-radius:4px;background:rgba(10,0,20,.55);color:rgba(255,255,255,.75);font-size:11px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(8px);box-shadow:0 0 15px rgba(255,0,204,.15);transition:.25s}
+.audio-control:hover{background:rgba(255,0,204,.15);box-shadow:0 0 25px rgba(255,0,204,.45);color:white}
+@media(max-width:700px){.moon{top:35%}.city{height:35%}.title{top:61%}.building:nth-child(n+12){display:none}}
+</style>
+</head>
+<body>
+<div class="sky">
+<div class="stars"></div>
+<div class="moon"></div>
+<div class="horizon"></div>
+<div class="city">
+<div class="building"><div class="windows"></div></div><div class="building"><div class="windows"></div></div>
+<div class="building"><div class="windows"></div></div><div class="building"><div class="windows"></div></div>
+<div class="building"><div class="windows"></div></div><div class="building"><div class="windows"></div></div>
+<div class="building"><div class="windows"></div></div><div class="building"><div class="windows"></div></div>
+<div class="building"><div class="windows"></div></div><div class="building"><div class="windows"></div></div>
+<div class="building"><div class="windows"></div></div><div class="building"><div class="windows"></div></div>
+<div class="building"><div class="windows"></div></div><div class="building"><div class="windows"></div></div>
+<div class="building"><div class="windows"></div></div><div class="building"><div class="windows"></div></div>
+<div class="building"><div class="windows"></div></div><div class="building"><div class="windows"></div></div>
+<div class="building"><div class="windows"></div></div><div class="building"><div class="windows"></div></div>
+</div>
+<div class="neon-line"></div><div class="fog"></div><div class="particles" id="particles"></div>
+<div class="title">NIGHT // SIGNAL // GHOST</div>
+<div class="scanlines"></div><div class="chromatic"></div><div class="vignette"></div><div class="glitch" id="glitch"></div>
+</div>
+<button class="audio-control" id="audioButton">Enable Audio</button>
+
+<!-- Optional local audio: place your legally obtained ghost.ogg beside this HTML
+<audio id="music" loop preload="auto"><source src="ghost.ogg" type="audio/ogg"></audio>
+-->
+
+<script>
+const particleContainer=document.getElementById("particles");
+for(let i=0;i<100;i++){
+ const p=document.createElement("div");p.className="particle";
+ const size=Math.random()*2+1;p.style.width=size+"px";p.style.height=size+"px";
+ p.style.left=Math.random()*100+"%";
+ p.style.animationDuration=(8+Math.random()*20)+"s";
+ p.style.animationDelay=(-Math.random()*25)+"s";
+ p.style.setProperty("--drift",(Math.random()*160-80)+"px");
+ particleContainer.appendChild(p);
+}
+const glitch=document.getElementById("glitch");
+function triggerGlitch(){glitch.classList.remove("active");void glitch.offsetWidth;glitch.classList.add("active")}
+function randomGlitch(){triggerGlitch();setTimeout(randomGlitch,5000+Math.random()*9000)}
+setTimeout(randomGlitch,3000+Math.random()*5000);
+
+const audioButton=document.getElementById("audioButton");
+const music=document.getElementById("music");
+if(music){
+ audioButton.addEventListener("click",async()=>{
+  try{
+   if(music.paused){await music.play();audioButton.textContent="Audio Playing"}
+   else{music.pause();audioButton.textContent="Enable Audio"}
+  }catch(e){console.log("Audio playback was blocked:",e)}
+ });
+}else{
+ audioButton.addEventListener("click",()=>{
+  audioButton.textContent="Add ghost.ogg";
+  setTimeout(()=>audioButton.textContent="Enable Audio",2000);
+ });
+}
+
+const moon=document.querySelector(".moon"),stars=document.querySelector(".stars"),city=document.querySelector(".city");
+window.addEventListener("mousemove",event=>{
+ const x=event.clientX/window.innerWidth-.5,y=event.clientY/window.innerHeight-.5;
+ moon.style.marginLeft=`${x*12}px`;moon.style.marginTop=`${y*8}px`;
+ stars.style.transform=`translate(${x*-12}px,${y*-5}px)`;
+ city.style.transform=`translateX(${x*-3}px)`;
+});
+setInterval(()=>{
+ const buildings=document.querySelectorAll(".building");
+ const b=buildings[Math.floor(Math.random()*buildings.length)];
+ b.style.filter="brightness(1.7)";
+ setTimeout(()=>b.style.filter="",100+Math.random()*300);
+},700);
+</script>
+</body>
+</html>
